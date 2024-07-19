@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import Header from './Header';
+import "../App.css"
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -16,6 +17,13 @@ const Login = () => {
       [name]: value,
     }));
   };
+
+  useEffect(() => {
+    const token = Cookies.get('token');
+    if (token) {
+      navigate('/');
+    }
+  }, [navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

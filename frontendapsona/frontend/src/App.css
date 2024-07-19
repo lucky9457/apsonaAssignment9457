@@ -17,16 +17,18 @@ body {
 }
 .navContainer{
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  width: 100vw;
-  height: 8vh;
+  height: 5vh;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px;
   color: #000000;
 }
 .maincontainer{
   display:flex ;
   align-items: flex-start;
-}
+} 
 
 .form button {
   padding: .7em;
@@ -42,6 +44,7 @@ body {
 .notes-list {
   display: flex;
   flex-wrap: wrap;
+ 
   gap: 1em;
 }
 
@@ -67,12 +70,12 @@ body {
 }
 .containerscroll{
   
-  height: 500px;
+  height: 530px;
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  
+
   align-items: flex-start;
   overflow: scroll;
 }
@@ -95,8 +98,8 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 .spinner-container{
-  width: 50vw;
-  height: 50vw;
+  width: 20vw;
+  height: 20vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,4 +124,17 @@ body {
 .tagedit{
   font-size: 15px;
   margin-left: 10px;
+} 
+.btns{
+  border-radius: 5px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+.error-message{
+  color: red;
 }

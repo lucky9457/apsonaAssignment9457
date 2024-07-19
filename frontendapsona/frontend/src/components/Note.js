@@ -32,12 +32,12 @@ const Note = ({ note, onEdit, onDelete, onArchive, onTrash }) => {
       <p className='para'>{note.content}</p>
       
       <div className="note-actions">
-        <button onClick={() => setIsPopupOpen(true)}>Edit</button>
+        <button className='btns' onClick={() => setIsPopupOpen(true)}>Edit</button>
 
-        <button onClick={() => onArchive(note._id)}>Archive</button>
-        <button onClick={() => onTrash(note._id)}>Trash</button>
+        <button className='btns' onClick={() => onArchive(note._id)}>Archive</button>
+        <button className='btns' onClick={() => onTrash(note._id)}>Trash</button>
       </div>
-      <p className='labless'>{note.tags && <FontAwesomeIcon icon={faTag} />} {note.tags && note.tags.join(', ')}<FontAwesomeIcon className='tagedit' icon={faPencil} /> </p>
+      <p className='labless'>{note.tags && <FontAwesomeIcon icon={faTag} />} {note.tags && note.tags.join(', ')}</p>
       
 
       <Popup open={isPopupOpen} closeOnDocumentClick onClose={() => setIsPopupOpen(false)}>

@@ -1,5 +1,5 @@
 .SideNavContainer{
-    height: 90vh;
+    height: 93vh;
     width: 200px;
    
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -19,4 +19,27 @@ ul{
 .linkele{
     color: #000000;
     text-decoration: none;
+  }
+
+  .active{
+    background-color: #000000;
+    color: white;
+    transition: linear 0.5s ;
+  }
+  .btnlogout{
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    background-color: #000000;
+    color: white;
+    margin-bottom: 30px;
+    margin-right: 30px;
+    cursor: pointer;
+  }
+  .ulcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    
   }

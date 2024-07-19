@@ -1,15 +1,34 @@
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+import "./Sidebar.css";
 
-import { Link } from "react-router-dom"
+const SideBar = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
 
-import "./Sidebar.css"
+  const handleLogout = () => {
 
-const SideBar = () =>(
-    <div className="SideNavContainer">
-        <ul >
-            <Link className="linkele" to="/"><li className="navitem">Notes</li></Link> 
-            <Link className="linkele" to="/archieve"> <li className="navitem">Archieved</li></Link>
-            <Link className="linkele" to="/trash"><li className="navitem">Trashes</li></Link>
-        </ul>
+    Cookies.remove('token');
+    navigate('/login');
+  };
+
+  return (
+    <div className="SideNavContainer ulcontainer">
+      <ul className="">
+        <Link className="linkele" to="/">
+          <li className={`navitem ${location.pathname === '/' ? 'active' : ''}`}>Notes</li>
+        </Link>
+        <Link className="linkele" to="/archieve">
+          <li className={`navitem ${location.pathname === '/archieve' ? 'active' : ''}`}>Archived</li>
+        </Link>
+        <Link className="linkele" to="/trash">
+          <li className={`navitem ${location.pathname === '/trash' ? 'active' : ''}`}>Trashes</li>
+        </Link>
+       
+      </ul>
+      <button className=" btnlogout navitem logout" onClick={handleLogout}>Logout</button>
     </div>
-)
-export default SideBar
+  );
+};
+
+export default SideBar;

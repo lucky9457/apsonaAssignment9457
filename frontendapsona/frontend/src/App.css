@@ -28,6 +28,7 @@ body {
 .maincontainer{
   display:flex ;
   align-items: flex-start;
+   height: 100vw;
 } 
 
 .form button {

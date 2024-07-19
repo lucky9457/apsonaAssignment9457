@@ -38,7 +38,7 @@ const EditNotePopup = ({ note, onEditNote }) => {
               <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
 
               <label>Content:</label>
-              <textarea rows={15} value={content} onChange={(e) => setContent(e.target.value)} required />
+              <textarea rows={10} value={content} onChange={(e) => setContent(e.target.value)} required />
 
               <label>Tags:</label>
               <input type="text" value={tags} onChange={(e) => setTags(e.target.value)} />

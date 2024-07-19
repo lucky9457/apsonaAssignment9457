@@ -3,11 +3,13 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import Header from './Header';
+import ClipLoader from 'react-spinners/ClipLoader';
 import "../App.css"
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
+  const[loading,setLoading] = useState(false)
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -28,7 +30,8 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/auth/login', formData);
+      setLoading(true)
+      const res = await axios.post('https://apsonaassignment9457.onrender.com/api/auth/login', formData);
       const token = res.data.token;
       localStorage.setItem('token', token);
       Cookies.set('token', token, { expires: 7 }); // Set token in cookie with 7 days expiry
@@ -40,6 +43,8 @@ const Login = () => {
       } else {
         setError('Login error, please try again.'); // Default error message
       }
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -60,7 +65,9 @@ const Login = () => {
         onChange={handleChange}
         placeholder="Password"
       />
-      <button type="submit">Login</button>
+      <button type="submit" disabled={loading}>
+        {loading ? <ClipLoader size={20} color={"#fff"} /> : 'Login'}
+      </button>
       <p>Don't have an Account? <Link to="/register">Register</Link></p>
     </form>
   );

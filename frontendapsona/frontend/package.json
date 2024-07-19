@@ -2,7 +2,6 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://apsonaassignment9457.onrender.com",
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
@@ -17,6 +16,7 @@
     "react-popup": "^0.11.2",
     "react-router-dom": "^6.25.1",
     "react-scripts": "5.0.1",
+    "react-spinners": "^0.14.1",
     "reactjs-popup": "^2.0.6",
     "web-vitals": "^2.1.4"
   },

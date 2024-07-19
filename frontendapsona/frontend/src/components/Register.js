@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+import ClipLoader from 'react-spinners/ClipLoader';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 const Register = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
+  const [loading,setLoading] = useState(false)
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -18,7 +21,8 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/auth/register', formData);
+      setLoading(true)
+      await axios.post('https://apsonaassignment9457.onrender.com/api/auth/register', formData);
       navigate('/login');
     } catch (error) {
       if (error.response && error.response.data) {
@@ -26,6 +30,8 @@ const Register = () => {
       } else {
         setError('Registration error, please try again.'); // Default error message
       }
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -46,7 +52,9 @@ const Register = () => {
         onChange={handleChange}
         placeholder="Password"
       />
-      <button type="submit">Register</button>
+      <button type="submit" disabled={loading}>
+        {loading ? <ClipLoader size={20} color={"#fff"} /> : 'Register'}
+      </button>
       <p>Already have an Account? <Link to="/login">Login</Link></p>
     </form>
   );
